@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # macOS Finder file that stores custom view settings for each folder
 .DS_Store
+
+# ignore samples
+Samples/
