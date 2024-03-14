@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+
 public class LeaderboardController : MonoBehaviour
 {
-
+    // LIst of players
     private List<PlayerScore> scores = new List<PlayerScore>();
 
+    // AddNewScore
     public void AddNewScore(string name, int score)
     {
         // Check to see if the name already exists
@@ -29,11 +31,20 @@ public class LeaderboardController : MonoBehaviour
 
     }
 
+    
     public bool NameExists(string name)
     {
         return scores.Any(s => s.Name == name);
+
     }
 
+    // Public Scores record
+    public List<PlayerScore> Scores
+    {
+        get { return scores; }
+    }
+
+    
     public class PlayerScore
     {
         public string Name { get; set; }
@@ -44,6 +55,7 @@ public class LeaderboardController : MonoBehaviour
             Name = name;
             Score = score;
         }
-    }
-}
 
+    }
+
+}
