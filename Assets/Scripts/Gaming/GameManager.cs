@@ -6,9 +6,23 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public event Action<GameResult> OnGameEnd;
-    public void GameStart()
+    [SerializeField] private TargetController targetController;
+    private GameResult gameResult;
+    public void GameStart(string playerName)
     {
-        throw new NotImplementedException();
+        gameResult = new GameResult
+        {
+            PlayerName = playerName
+        };
+        targetController.OnPlayerHit += targetController_OnTargetHit;
+    }
+    private void GameEnd(){
+        OnGameEnd?.Invoke(gameResult);
+        targetController.OnPlayerHit -= targetController_OnTargetHit;
+    }
+    private void targetController_OnTargetHit(int score)
+    {
+        gameResult.PlayerScore += score;
     }
 }
 
