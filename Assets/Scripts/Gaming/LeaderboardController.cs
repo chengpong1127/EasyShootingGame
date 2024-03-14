@@ -9,15 +9,15 @@ public class LeaderboardController : MonoBehaviour
 
     public void AddNewScore(string name, int score)
     {
-        // 檢查檢查該名稱是否已經存在於排行榜中
+        // Check to see if the name already exists
         if (!NameExists(name))
         {
             scores.Add(new PlayerScore(name, score));
 
-            // 對分數進行排序
+            // Sort scores
             scores = scores.OrderByDescending(s => s.score).ToList();
         }
-        else //如果名子存在，會更新數值
+        else //If the name already exists
         {   
             var existingScore = scores.Find(s => s.name == name);
             if (score > existingScore.score)
