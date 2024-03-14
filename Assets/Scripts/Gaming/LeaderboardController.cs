@@ -31,6 +31,11 @@ public class LeaderboardController : MonoBehaviour
 
     }
 
+    public List<PlayerScore> GetPlayerScoreList(){
+        // sort scores in descending order
+        throw new System.NotImplementedException();
+    }
+
     
     public bool NameExists(string name)
     {
@@ -38,11 +43,6 @@ public class LeaderboardController : MonoBehaviour
 
     }
 
-    // Public Scores record
-    public List<PlayerScore> Scores
-    {
-        get { return scores; }
-    }
 
     
     public class PlayerScore
