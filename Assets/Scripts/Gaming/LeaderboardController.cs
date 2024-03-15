@@ -1,50 +1,71 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
 public class LeaderboardController : MonoBehaviour
 {
-    // LIst of players
     private List<PlayerScore> scores = new List<PlayerScore>();
+    private SaveLoadManager saveLoadManager;
 
-    // AddNewScore
+
+
+    void Start()
+    {
+        saveLoadManager = FindObjectOfType<SaveLoadManager>();// Get the data from SaveLoadManger 
+        LoadLeaderboard();
+    }
+
+
     public void AddNewScore(string name, int score)
     {
-        // Check to see if the name already exists
-        if (!NameExists(name))
+        var existingScore = scores.Find(s => s.Name == name);
+        if (existingScore != null)
         {
-            scores.Add(new PlayerScore(name, score));
-
-            // Sort scores
-            scores = scores.OrderByDescending(s => s.Score).ToList();
-        }
-        else //If the name already exists
-        {
-            var existingScore = scores.Find(s => s.Name == name);
+            // Player already existed
             if (score > existingScore.Score)
             {
+                // Renew the score
                 existingScore.Score = score;
+                SaveLeaderboard();
             }
         }
-
+        else
+        {
+            // Add the score
+            scores.Add(new PlayerScore(name, score));
+            SaveLeaderboard();
+        }
     }
 
-    public List<PlayerScore> GetPlayerScoreList(){
-        // sort scores in descending order
-        throw new System.NotImplementedException();
-    }
-
-    
-    public bool NameExists(string name)
+    // Use saveLoadManager.LoadLeaderboar() to get the data
+    private void LoadLeaderboard()
     {
-        return scores.Any(s => s.Name == name);
+        var loadedScores = saveLoadManager.LoadLeaderboard(); // Load data form saveLoadManager
+        scores.Clear();
+        // Load the all data
+        foreach (var item in loadedScores)
+        {
+            scores.Add(new PlayerScore(item.Key, item.Value));
+        }
+    }
 
+    private void SaveLeaderboard()
+    {
+        var leaderboardToSave = new Dictionary<string, int>();
+        foreach (var score in scores)
+        {
+            leaderboardToSave[score.Name] = score.Score;
+        }
+        saveLoadManager.SaveLeaderboard(leaderboardToSave);
     }
 
 
-    
+    public List<PlayerScore> GetPlayerScoreList()
+    {
+        // Output after sorting scores
+        return scores.OrderByDescending(s => s.Score).ToList();
+    }
+
     public class PlayerScore
     {
         public string Name { get; set; }
@@ -55,7 +76,12 @@ public class LeaderboardController : MonoBehaviour
             Name = name;
             Score = score;
         }
-
     }
 
+    public void SetSaveLoadManager(SaveLoadManager manager)
+    {
+        this.saveLoadManager = manager;
+    }
 }
+
+
