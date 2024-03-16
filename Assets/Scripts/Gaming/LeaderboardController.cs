@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class LeaderboardController : MonoBehaviour
 {
     private List<PlayerScore> scores = new List<PlayerScore>();
+    public event Action OnLeaderboardUpdated = delegate { };
     private SaveLoadManager saveLoadManager;
 
 

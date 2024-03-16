@@ -1,33 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
-
-public class GameManager : MonoBehaviour
-{
-    public event Action<GameResult> OnGameEnd;
-    [SerializeField] private TargetController targetController;
-    private GameResult gameResult;
-    public void GameStart(string playerName)
-    {
-        gameResult = new GameResult
-        {
-            PlayerName = playerName
-        };
-        targetController.OnPlayerHit += targetController_OnTargetHit;
+using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
+public class GameManager: Singleton<GameManager>{
+    public string PlayerName { get; private set; }
+    private GameRunner _gameRunner;
+    void Start(){
+        DontDestroyOnLoad(gameObject);
     }
-    private void GameEnd(){
-        OnGameEnd?.Invoke(gameResult);
-        targetController.OnPlayerHit -= targetController_OnTargetHit;
+    public async void StartGame(string playerName){
+        PlayerName = playerName;
+        await SceneManager.LoadSceneAsync("Game");
+        _gameRunner = FindObjectOfType<GameRunner>();
+        _gameRunner.OnQuitGame += QuitGameHandler;
     }
-    private void targetController_OnTargetHit(int score)
-    {
-        gameResult.PlayerScore += score;
+    private async void QuitGameHandler(){
+        _gameRunner.OnQuitGame -= QuitGameHandler;
+        _gameRunner = null;
+        await SceneManager.LoadSceneAsync("MenuScene");
     }
-}
-
-
-public class GameResult{
-    public string PlayerName;
-	public int PlayerScore;
 }
