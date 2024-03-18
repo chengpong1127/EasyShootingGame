@@ -9,8 +9,6 @@ public class LeaderboardController : MonoBehaviour
     public event Action OnLeaderboardUpdated = delegate { };
     private SaveLoadManager saveLoadManager;
 
-
-
     void Start()
     {
         saveLoadManager = FindObjectOfType<SaveLoadManager>();// Get the data from SaveLoadManger 
@@ -19,7 +17,8 @@ public class LeaderboardController : MonoBehaviour
 
 
     public void AddNewScore(string name, int score)
-    {
+    {   
+        bool needsUpdate = false;
         var existingScore = scores.Find(s => s.Name == name);
         if (existingScore != null)
         {
@@ -28,6 +27,7 @@ public class LeaderboardController : MonoBehaviour
             {
                 // Renew the score
                 existingScore.Score = score;
+                needsUpdate = true;
                 SaveLeaderboard();
             }
         }
@@ -35,7 +35,14 @@ public class LeaderboardController : MonoBehaviour
         {
             // Add the score
             scores.Add(new PlayerScore(name, score));
+            needsUpdate = true;
             SaveLeaderboard();
+        }
+
+        if (needsUpdate)
+        {
+            SaveLeaderboard();
+            OnLeaderboardUpdated.Invoke(); // Invoke the event after the leaderboard is updated
         }
     }
 
@@ -48,6 +55,7 @@ public class LeaderboardController : MonoBehaviour
         foreach (var item in loadedScores)
         {
             scores.Add(new PlayerScore(item.Key, item.Value));
+            OnLeaderboardUpdated.Invoke(); // Invoke the event after scores are loaded and list is potentially updated
         }
     }
 
