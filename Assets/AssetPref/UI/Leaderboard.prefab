@@ -1404,6 +1404,7 @@ GameObject:
   - component: {fileID: 6548176610268782944}
   - component: {fileID: 5865835601432362009}
   - component: {fileID: 149484697450130953}
+  - component: {fileID: 2877774555541219747}
   m_Layer: 5
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -1479,7 +1480,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &149484697450130953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,3 +1498,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2877774555541219747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692674250643719755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7cf6d07ef09a46ef8d68f876e9e713d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leaderboardController: {fileID: 0}
+  texts:
+  - {fileID: 442881578488274087}
+  - {fileID: 8048511438904374523}
+  - {fileID: 8981774855561884733}
