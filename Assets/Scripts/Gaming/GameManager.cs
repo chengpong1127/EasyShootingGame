@@ -9,7 +9,7 @@ public class GameManager: Singleton<GameManager>{
     }
     public async void StartGame(string playerName){
         PlayerName = playerName;
-        await SceneManager.LoadSceneAsync("Game");
+        await SceneManager.LoadSceneAsync("GameScene");
         _gameRunner = FindObjectOfType<GameRunner>();
         _gameRunner.OnQuitGame += QuitGameHandler;
     }
@@ -17,5 +17,8 @@ public class GameManager: Singleton<GameManager>{
         _gameRunner.OnQuitGame -= QuitGameHandler;
         _gameRunner = null;
         await SceneManager.LoadSceneAsync("MenuScene");
+    }
+    public void QuitGame(){
+        Application.Quit();
     }
 }
