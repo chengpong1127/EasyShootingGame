@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using Oculus.Interaction.HandGrab;
 using System;
+using Cysharp.Threading.Tasks;
 
 public class WeaponController : MonoBehaviour, IHandGrabUseDelegate
 {
@@ -11,13 +12,14 @@ public class WeaponController : MonoBehaviour, IHandGrabUseDelegate
     public event Action OnAmmoEmpty;
     public event Action<int> OnAmmoChanged;
     public int AmmoCount = 0;
-
+    private bool coolingDown = false;
     public void BeginUse()
     {
-        if (AmmoCount <= 0)
+        if (AmmoCount <= 0 || coolingDown)
         {
             return;
         }
+        Cooldown();
         _gunController.Shoot();
         AmmoCount--;
         OnAmmoChanged?.Invoke(AmmoCount);
@@ -25,6 +27,18 @@ public class WeaponController : MonoBehaviour, IHandGrabUseDelegate
         {
             OnAmmoEmpty?.Invoke();
         }
+        
+    }
+
+    private async void Cooldown()
+    {
+        if (coolingDown)
+        {
+            return;
+        }
+        coolingDown = true;
+        await UniTask.Delay(200);
+        coolingDown = false;
     }
 
     public float ComputeUseStrength(float strength)

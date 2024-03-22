@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 41178194}
   - component: {fileID: 41178193}
   - component: {fileID: 41178192}
+  - component: {fileID: 41178195}
   m_Layer: 0
   m_Name: GameRunner
   m_TagString: Untagged
@@ -168,6 +169,8 @@ MonoBehaviour:
   targetController: {fileID: 1030702203}
   leaderboardController: {fileID: 41178192}
   weaponController: {fileID: 2051320317}
+  gameStartSound: {fileID: 0}
+  gameEndSound: {fileID: 0}
   PlayerScore: 0
 --- !u!4 &41178194
 Transform:
@@ -184,6 +187,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &41178195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41178191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb60b22a36254e07bd45352cf7255ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &101383242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,6 +1788,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb743c666c1ab34e928a0b62c2fa862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2017262651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2483171112643467137, guid: f54012181eacade4ea242c65f804720f, type: 3}
+  m_PrefabInstance: {fileID: 1985888092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2051320315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1892,6 +1912,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3107047378194177315, guid: df2df7abde09c104e81adc2e2551872a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2051320322}
+    - targetCorrespondingSourceObject: {fileID: 3107047378194177315, guid: df2df7abde09c104e81adc2e2551872a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2051320325}
   m_SourcePrefab: {fileID: 100100000, guid: df2df7abde09c104e81adc2e2551872a, type: 3}
 --- !u!4 &2051320316 stripped
 Transform:
@@ -1946,6 +1969,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35181eeb40ed13148b0721382f49aba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2051320325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109022293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactableView: {fileID: 109022295}
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2017262651}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2017262651}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  _whenInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2112393284 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3205782409491679194, guid: df2df7abde09c104e81adc2e2551872a, type: 3}

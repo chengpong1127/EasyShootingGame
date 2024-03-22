@@ -34,8 +34,6 @@ public class StateUIController : MonoBehaviour
     private void GameEndHandler()
     {
         stateText.text = "Not Playing...";
-        scoreText.text = "Score: ";
-        ammoText.text = "AMMO: 0";
     }
     private void ScoreChangedHandler(int score)
     {

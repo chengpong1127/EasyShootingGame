@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-[AddComponentMenu("Nokobot/Modern Guns/Simple Shoot")]
 public class GunController : MonoBehaviour
 {
     [Header("Prefab Refrences")]
@@ -20,6 +19,7 @@ public class GunController : MonoBehaviour
     [Tooltip("Specify time to destory the casing object")] [SerializeField] private float destroyTimer = 2f;
     [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
+    [SerializeField] private AudioClip shootSound;
 
 
     void Start()
@@ -37,25 +37,18 @@ public class GunController : MonoBehaviour
     {
         if (muzzleFlashPrefab)
         {
-            gunAnimator.SetTrigger("Fire");
-            //Create the muzzle flash
             GameObject tempFlash;
             tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-
-            //Destroy the muzzle flash effect
             Destroy(tempFlash, destroyTimer);
-
-            await UniTask.Delay(100);
-            gunAnimator.ResetTrigger("Fire");
         }
-
-        //cancels if there's no bullet prefeb
-        if (!bulletPrefab)
-        { return; }
-
-        // Create a bullet and add force on it in direction of the barrel
-        //Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
-
+        gunAnimator.SetTrigger("Fire");
+        if (shootSound)
+        {
+            AudioManager.Instance.PlayAudio(shootSound, 1f);
+        }
+        Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        await UniTask.Delay(100);
+        gunAnimator.ResetTrigger("Fire");
     }
 
     //This function creates a casing at the ejection slot
