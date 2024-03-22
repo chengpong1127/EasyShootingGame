@@ -224,7 +224,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2.0000002, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &557758642
 GameObject:
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _position: {x: 0, y: 0, z: 0}
-  _size: {x: 100, y: 100, z: 0.01}
+  _size: {x: 1, y: 1, z: 1}
 --- !u!114 &1483886954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,27 +778,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4243228398612235653, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4243228398612235653, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4243228398612235653, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4243228398612235653, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4243228398612235653, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4243228398612235653, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 230
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4243228398612235653, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
       propertyPath: m_LocalPosition.x

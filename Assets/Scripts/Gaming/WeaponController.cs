@@ -3,14 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Oculus.Interaction.HandGrab;
+using System;
 
 public class WeaponController : MonoBehaviour, IHandGrabUseDelegate
 {
     [SerializeField] private GunController _gunController;
+    public event Action OnAmmoEmpty;
+    public event Action<int> OnAmmoChanged;
+    public int AmmoCount = 0;
 
     public void BeginUse()
     {
+        if (AmmoCount <= 0)
+        {
+            return;
+        }
         _gunController.Shoot();
+        AmmoCount--;
+        OnAmmoChanged?.Invoke(AmmoCount);
+        if (AmmoCount <= 0)
+        {
+            OnAmmoEmpty?.Invoke();
+        }
     }
 
     public float ComputeUseStrength(float strength)
@@ -25,15 +39,8 @@ public class WeaponController : MonoBehaviour, IHandGrabUseDelegate
     void Awake(){
         Assert.IsNotNull(_gunController);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void AddAmmo(int ammo){
+        AmmoCount += ammo;
+        OnAmmoChanged?.Invoke(AmmoCount);
     }
 }

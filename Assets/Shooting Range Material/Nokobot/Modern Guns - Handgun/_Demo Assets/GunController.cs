@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 [AddComponentMenu("Nokobot/Modern Guns/Simple Shoot")]
 public class GunController : MonoBehaviour
@@ -32,7 +33,7 @@ public class GunController : MonoBehaviour
 
 
     //This function creates the bullet behavior
-    public void Shoot()
+    public async void Shoot()
     {
         if (muzzleFlashPrefab)
         {
@@ -43,6 +44,9 @@ public class GunController : MonoBehaviour
 
             //Destroy the muzzle flash effect
             Destroy(tempFlash, destroyTimer);
+
+            await UniTask.Delay(100);
+            gunAnimator.ResetTrigger("Fire");
         }
 
         //cancels if there's no bullet prefeb

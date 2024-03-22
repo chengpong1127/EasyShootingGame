@@ -6,13 +6,17 @@ using UnityEngine.UI;
 public class LeaderboardUIController : MonoBehaviour
 {
     [SerializeField] private LeaderboardController leaderboardController;
+    [SerializeField] private GameRunner gameRunner;
     [SerializeField] private Text[] texts;
     void Awake(){
         Assert.IsNotNull(leaderboardController);
+        Assert.IsNotNull(gameRunner);
     }
     void Start()
     {
         leaderboardController.OnLeaderboardUpdated += LeaderboardUpdatedHandler;
+        gameRunner.OnStartGame += GameStartHandler;
+        gameRunner.OnGameEnd += GameEndHandler;
     }
     private void LeaderboardUpdatedHandler()
     {
@@ -33,5 +37,16 @@ public class LeaderboardUIController : MonoBehaviour
     void OnDestroy()
     {
         leaderboardController.OnLeaderboardUpdated -= LeaderboardUpdatedHandler;
+        gameRunner.OnStartGame -= GameStartHandler;
+        gameRunner.OnGameEnd -= GameEndHandler;
+    }
+
+    private void GameStartHandler()
+    {
+        gameObject.SetActive(false);
+    }
+    private void GameEndHandler()
+    {
+        gameObject.SetActive(true);
     }
 }
