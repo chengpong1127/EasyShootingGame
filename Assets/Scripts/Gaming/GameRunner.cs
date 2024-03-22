@@ -35,7 +35,7 @@ public class GameRunner : MonoBehaviour
         }
     }
     private async void GameEnd(){
-        await UniTask.Delay(1000);
+        await UniTask.Delay(2000);
         OnGameEnd?.Invoke();
         targetController.OnPlayerHit -= targetController_OnTargetHit;
         leaderboardController.AddNewScore(GameManager.Instance.PlayerName, PlayerScore);

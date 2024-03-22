@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _position: {x: 0, y: 0, z: 0}
-  _size: {x: 1, y: 1, z: 1}
+  _size: {x: 200, y: 230, z: 0.01}
 --- !u!114 &1483886954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,6 +852,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 8083167017379431291, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083167017379431291, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083167017379431291, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 418455851375379444}
+    - target: {fileID: 8083167017379431291, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083167017379431291, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowKeyboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083167017379431291, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuUIController, Script
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083167017379431291, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -862,6 +890,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4243228398612235653, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
   m_PrefabInstance: {fileID: 418455851375379442}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &418455851375379444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2689417793677758122, guid: 5d782fac30161dd4d9085c5035e28b8c, type: 3}
+  m_PrefabInstance: {fileID: 418455851375379442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa251ee9deef841639ce5e4a4209c549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

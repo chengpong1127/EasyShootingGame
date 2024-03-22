@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2158920859246382426}
   m_Layer: 0
   m_Name: Military target
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 2466196033107714087}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 7416029274398630324}
   m_Layer: 0
   m_Name: Collider_5
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,7 +210,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.0096
-  m_Height: 0.01
+  m_Height: 0.06
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7416029274398630324
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 4600308449443728545}
   m_Layer: 0
   m_Name: Collider_10
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +278,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.0038
-  m_Height: 0.01
+  m_Height: 0.08
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4600308449443728545
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 3407530873549483733}
   m_Layer: 0
   m_Name: Collider_3
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

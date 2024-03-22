@@ -6,6 +6,7 @@ using TMPro;
 public class MenuUIController : MonoBehaviour
 {
     [SerializeField] private  TMP_InputField _inputField;
+    private TouchScreenKeyboard _keyboard;
     void Awake(){
         Assert.IsNotNull(_inputField);
     }
@@ -14,5 +15,8 @@ public class MenuUIController : MonoBehaviour
     }
     public void QuitGame(){
         GameManager.Instance.QuitGame();
+    }
+    public void ShowKeyboard(){
+        _keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
     }
 }
