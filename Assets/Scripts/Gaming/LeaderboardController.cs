@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 
+
 public class LeaderboardController : MonoBehaviour
 {
     private List<PlayerScore> scores = new List<PlayerScore>();
@@ -15,7 +16,11 @@ public class LeaderboardController : MonoBehaviour
         LoadLeaderboard();
     }
 
-
+    [ContextMenu("Clear Leaderboard")]
+    private void ClearLeaderboard()
+    {
+        Debug.Log("Clearing leaderboard");
+    }
     public void AddNewScore(string name, int score)
     {   
         bool needsUpdate = false;
