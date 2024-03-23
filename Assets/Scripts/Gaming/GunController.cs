@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cysharp.Threading.Tasks;
 
 public class GunController : MonoBehaviour
 {
@@ -30,29 +29,35 @@ public class GunController : MonoBehaviour
         if (gunAnimator == null)
             gunAnimator = GetComponentInChildren<Animator>();
     }
-
-
-    //This function creates the bullet behavior
-    public async void Shoot()
-    {
-        if (muzzleFlashPrefab)
-        {
-            GameObject tempFlash;
-            tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-            Destroy(tempFlash, destroyTimer);
-        }
+    [ContextMenu("Shoot")]
+    public void StartShoot(){
         gunAnimator.SetTrigger("Fire");
         if (shootSound)
         {
             AudioManager.Instance.PlayAudio(shootSound, 1f);
         }
+    }
+    void Shoot()
+    {
+        if (muzzleFlashPrefab)
+        {
+            //Create the muzzle flash
+            GameObject tempFlash;
+            tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
+
+            //Destroy the muzzle flash effect
+            Destroy(tempFlash, destroyTimer);
+        }
+
+        //cancels if there's no bullet prefeb
+        if (!bulletPrefab)
+        { return; }
+
+        // Create a bullet and add force on it in direction of the barrel
         Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
-        await UniTask.Delay(100);
-        gunAnimator.ResetTrigger("Fire");
     }
 
-    //This function creates a casing at the ejection slot
-    public void CasingRelease()
+    void CasingRelease()
     {
         //Cancels function if ejection slot hasn't been set or there's no casing
         if (!casingExitLocation || !casingPrefab)

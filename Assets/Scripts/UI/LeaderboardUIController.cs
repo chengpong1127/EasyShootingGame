@@ -17,6 +17,7 @@ public class LeaderboardUIController : MonoBehaviour
         leaderboardController.OnLeaderboardUpdated += LeaderboardUpdatedHandler;
         gameRunner.OnStartGame += GameStartHandler;
         gameRunner.OnGameEnd += GameEndHandler;
+        LeaderboardUpdatedHandler();
     }
     private void LeaderboardUpdatedHandler()
     {
