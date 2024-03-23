@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveLoadManager : MonoBehaviour
+public class SaveLoadManager : Singleton<SaveLoadManager>
 {
     private const string LeaderboardKey = "Leaderboard";
 

@@ -11,7 +11,7 @@ public class LeaderboardController : MonoBehaviour
 
     void Start()
     {
-        saveLoadManager = FindObjectOfType<SaveLoadManager>();// Get the data from SaveLoadManger 
+        saveLoadManager = SaveLoadManager.Instance;
         LoadLeaderboard();
     }
 

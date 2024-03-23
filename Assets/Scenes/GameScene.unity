@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 41178193}
   - component: {fileID: 41178192}
   - component: {fileID: 41178195}
+  - component: {fileID: 41178196}
   m_Layer: 0
   m_Name: GameRunner
   m_TagString: Untagged
@@ -197,6 +198,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cb60b22a36254e07bd45352cf7255ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &41178196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41178191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e83e5129dbbe49e3a991c6c0324de81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &101383242
@@ -397,6 +410,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 1985888096}
+--- !u!1 &224960981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224960982}
+  - component: {fileID: 224960983}
+  m_Layer: 0
+  m_Name: GameTester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &224960982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224960981}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &224960983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224960981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a165fc4e78dd74bd0bcc970407d17914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &237085850
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,11 +588,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237085850}
   m_CullTransparentMesh: 1
---- !u!1 &287859775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3079314865701777818, guid: f54012181eacade4ea242c65f804720f, type: 3}
-  m_PrefabInstance: {fileID: 1985888092}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &444054244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3673df66324d8f34d9433049c54de631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1791632457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2483171111722640157, guid: f54012181eacade4ea242c65f804720f, type: 3}
+  m_PrefabInstance: {fileID: 1985888092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951486913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,6 +1713,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 606410754888688549, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483171111210845616, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: _interactors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2483171112402022016, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1670,6 +1735,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2483171112643467137, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483171112681471079, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: _interactors.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f, type: 3}
@@ -1724,6 +1793,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4555562308555476938, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6366367555574805482, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: _monoBehaviours.Array.size
       value: 0
@@ -1735,6 +1808,14 @@ PrefabInstance:
     - target: {fileID: 6846981255325113677, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996277670399095259, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996277670552144107, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2016,7 +2097,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 287859775}
+      - m_Target: {fileID: 1791632457}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2043,7 +2124,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 287859775}
+      - m_Target: {fileID: 1791632457}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2090,3 +2171,4 @@ SceneRoots:
   - {fileID: 101383246}
   - {fileID: 475332771}
   - {fileID: 41178194}
+  - {fileID: 224960982}
