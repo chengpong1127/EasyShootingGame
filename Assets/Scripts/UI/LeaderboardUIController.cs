@@ -25,11 +25,14 @@ public class LeaderboardUIController : MonoBehaviour
         {
             if (i < scores.Count)
             {
-                texts[i].text = (i + 1) + " : " + " " + scores[i].Score + " " + " " + scores[i].Name + " ";
+                // texts[i].text = (i + 1) + " : " + " " + scores[i].Score + " " + " " + scores[i].Name + " ";
+                texts[i].text = (i + 1) + " : " + " " + scores[i].Score + "  " + scores[i].Name;
+
             }
             else
             {
-                texts[i].text = (i + 1) + " : " + " 0 " + " Null ";
+                //texts[i].text = (i + 1) + " : " + " 0 " + " Null ";
+                texts[i].text = (i + 1) + " : ";
             }
         }
 
