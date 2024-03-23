@@ -170,8 +170,8 @@ MonoBehaviour:
   targetController: {fileID: 1030702203}
   leaderboardController: {fileID: 41178192}
   weaponController: {fileID: 2051320317}
-  gameStartSound: {fileID: 0}
-  gameEndSound: {fileID: 0}
+  gameStartSound: {fileID: 8300000, guid: 7f0b0878750742e4fb9edde53f091d32, type: 3}
+  gameEndSound: {fileID: 8300000, guid: 71545e449b0129848916df37033b6264, type: 3}
   PlayerScore: 0
 --- !u!4 &41178194
 Transform:
@@ -1947,6 +1947,10 @@ PrefabInstance:
       propertyPath: _tightHandGrabPoses.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6655378127265359649, guid: df2df7abde09c104e81adc2e2551872a, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
     - target: {fileID: 7435035768889898574, guid: df2df7abde09c104e81adc2e2551872a, type: 3}
       propertyPath: m_Name
       value: Gun
