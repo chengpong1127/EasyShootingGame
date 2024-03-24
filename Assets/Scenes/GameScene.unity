@@ -2004,7 +2004,7 @@ PrefabInstance:
     - target: {fileID: 6655378127265359649, guid: df2df7abde09c104e81adc2e2551872a, type: 3}
       propertyPath: shootSound
       value: 
-      objectReference: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
+      objectReference: {fileID: 8300000, guid: d271bbce4aa324909ae1e09d00dce013, type: 3}
     - target: {fileID: 7435035768889898574, guid: df2df7abde09c104e81adc2e2551872a, type: 3}
       propertyPath: m_Name
       value: Gun
