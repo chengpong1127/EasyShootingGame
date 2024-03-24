@@ -1,16 +1,17 @@
-/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    public void PlayAudio(AudioClip audio, float volumn){
+    public Sound[] sounds;
+    public void PlayAudio(AudioClip audio, float volumn)
+    {
         //throw new System.NotImplementedException();
     }
 }
-*/
 
+/*
 // no singleton
 
 using UnityEngine.Audio;
@@ -57,7 +58,7 @@ public class AudioManager : MonoBehaviour
         Play("background");
     }
 }
-
+*/
 // if you gonna implement a singleton, try the following
 
 /*
