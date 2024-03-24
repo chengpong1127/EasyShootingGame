@@ -21,6 +21,7 @@ public class GameRunner : MonoBehaviour
         Assert.IsNotNull(targetController);
         Assert.IsNotNull(leaderboardController);
     }
+    [ContextMenu("GameStart")]
     public void GameStart()
     {
         PlayerScore = 0;
@@ -34,6 +35,7 @@ public class GameRunner : MonoBehaviour
             AudioManager.Instance.PlayAudio(gameStartSound, 1f);
         }
     }
+    [ContextMenu("GameEnd")]
     private async void GameEnd(){
         await UniTask.Delay(2000);
         OnGameEnd?.Invoke();
