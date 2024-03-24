@@ -170,7 +170,7 @@ MonoBehaviour:
   targetController: {fileID: 1030702203}
   leaderboardController: {fileID: 41178192}
   weaponController: {fileID: 2051320317}
-  gameStartSound: {fileID: 8300000, guid: 7f0b0878750742e4fb9edde53f091d32, type: 3}
+  gameStartSound: {fileID: 8300000, guid: 3b1b0dfec528f41e58e139eaf3b636a7, type: 3}
   gameEndSound: {fileID: 8300000, guid: 71545e449b0129848916df37033b6264, type: 3}
   PlayerScore: 0
 --- !u!4 &41178194
