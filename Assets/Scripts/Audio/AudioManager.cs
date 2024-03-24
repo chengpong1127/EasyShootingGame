@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    public Sound[] sounds;
+    // public Sound[] sounds;
+
     public void PlayAudio(AudioClip audio, float volumn)
     {
+
         //throw new System.NotImplementedException();
+        GameObject audioSourceObject = new GameObject("TemporaryAudioSource");
+        AudioSource audioSource = audioSourceObject.AddComponent<AudioSource>();
+
+        audioSource.PlayOneShot(audio, volumn);
+        // Invoke("audioSource.Stop()", 1);
+        Destroy(audioSourceObject, audio.length);
     }
 }
 
