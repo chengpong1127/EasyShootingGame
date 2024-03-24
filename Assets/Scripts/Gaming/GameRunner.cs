@@ -39,11 +39,13 @@ public class GameRunner : MonoBehaviour
     private async void GameEnd(){
         await UniTask.Delay(2000);
         OnGameEnd?.Invoke();
-        targetController.OnPlayerHit -= targetController_OnTargetHit;
-        leaderboardController.AddNewScore(GameManager.Instance.PlayerName, PlayerScore);
         if (gameEndSound)
         {
             AudioManager.Instance.PlayAudio(gameEndSound, 1f);
+        }
+        targetController.OnPlayerHit -= targetController_OnTargetHit;
+        if (GameManager.Instance){
+            leaderboardController.AddNewScore(GameManager.Instance.PlayerName, PlayerScore);
         }
     }
     private void targetController_OnTargetHit(int score)
