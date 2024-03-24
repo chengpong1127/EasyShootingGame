@@ -19,6 +19,8 @@ public class LeaderboardController : MonoBehaviour
     [ContextMenu("Clear Leaderboard")]
     private void ClearLeaderboard()
     {
+        scores.Clear();
+        SaveLeaderboard();
         Debug.Log("Clearing leaderboard");
     }
     public void AddNewScore(string name, int score)
